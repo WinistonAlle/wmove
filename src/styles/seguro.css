@@ -1,0 +1,128 @@
+/* ─── Insurance Table ─────────────────────────────────────── */
+.sgtable-head,
+.sgtable-row {
+  display: grid;
+  grid-template-columns: 150px 1fr 130px 110px 120px 110px 90px 36px;
+  align-items: center;
+  gap: 12px;
+}
+.sgtable-head {
+  padding: 8px 16px;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--text-dim);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 4px;
+}
+.sgtable-row { padding: 10px 16px; }
+
+/* ─── Status badges ───────────────────────────────────────── */
+.seg-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 999px;
+}
+.seg-status.active {
+  background: rgba(16,185,129,0.12);
+  color: var(--emerald);
+  border: 1px solid rgba(16,185,129,0.22);
+}
+.seg-status.expiring {
+  background: rgba(245,158,11,0.12);
+  color: var(--amber);
+  border: 1px solid rgba(245,158,11,0.22);
+}
+.seg-status.expired {
+  background: rgba(239,68,68,0.10);
+  color: var(--danger);
+  border: 1px solid rgba(239,68,68,0.2);
+}
+
+/* ─── Coverage type pill ──────────────────────────────────── */
+.cov-type {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: var(--surface-strong);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* ─── KPIs ────────────────────────────────────────────────── */
+.seg-kpis {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.seg-kpi {
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.seg-kpi-label {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--text-dim);
+}
+.seg-kpi-value {
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+}
+.seg-kpi-value.emerald { color: var(--emerald); }
+.seg-kpi-value.amber   { color: var(--amber); }
+.seg-kpi-value.danger  { color: var(--danger); }
+.seg-kpi-sub { font-size: 11.5px; color: var(--text-dim); }
+
+/* ─── Expiry countdown ────────────────────────────────────── */
+.expiry-soon  { color: var(--amber); font-weight: 600; }
+.expiry-ok    { color: var(--text-muted); }
+.expiry-gone  { color: var(--danger); font-weight: 600; }
+
+/* ─── Alert banner ────────────────────────────────────────── */
+.seg-alert-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 16px;
+  background: rgba(245,158,11,0.06);
+  border: 1px solid rgba(245,158,11,0.2);
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+.seg-alert-icon {
+  width: 28px; height: 28px;
+  border-radius: 8px;
+  background: rgba(245,158,11,0.15);
+  color: var(--amber);
+  display: grid; place-items: center;
+  flex-shrink: 0;
+}
+.seg-alert-title { font-size: 13px; font-weight: 600; margin-bottom: 2px; }
+.seg-alert-items { font-size: 12px; color: var(--text-muted); line-height: 1.6; }
+
+/* ─── Responsive ──────────────────────────────────────────── */
+@media (max-width: 1200px) {
+  .seg-kpis { grid-template-columns: repeat(2, 1fr); }
+  .sgtable-head,
+  .sgtable-row {
+    grid-template-columns: 140px 1fr 120px 110px 90px 36px;
+  }
+  .sgtable-head span:nth-child(4),
+  .sgtable-row > *:nth-child(4),
+  .sgtable-head span:nth-child(5),
+  .sgtable-row > *:nth-child(5) { display: none; }
+}

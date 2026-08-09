@@ -1,0 +1,77 @@
+/* ─── Rentals Table ───────────────────────────────────────── */
+.atable-head,
+.atable-row {
+  display: grid;
+  grid-template-columns: 1fr 110px 75px 90px 110px 100px 36px;
+  align-items: center;
+  gap: 12px;
+}
+.atable-head {
+  padding: 8px 16px;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--text-dim);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 4px;
+}
+.atable-row { padding: 12px 16px; }
+
+/* ─── Total Preview ───────────────────────────────────────── */
+.total-preview {
+  padding: 9px 12px;
+  background: var(--surface-strong);
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: var(--text-muted);
+}
+
+/* ─── Rental Detail ───────────────────────────────────────── */
+.rental-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  padding: 16px;
+  background: var(--surface-strong);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+.rental-detail-label {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--text-dim);
+  margin-bottom: 4px;
+}
+.rental-detail-val { font-size: 14px; }
+
+/* ─── Close Section ───────────────────────────────────────── */
+.close-section {
+  padding: 16px;
+  background: rgba(245,158,11,0.05);
+  border: 1px solid rgba(245,158,11,0.15);
+  border-radius: 12px;
+}
+.close-section-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--amber);
+  margin-bottom: 14px;
+  letter-spacing: -0.01em;
+}
+
+@media (max-width: 1100px) {
+  .atable-head,
+  .atable-row {
+    grid-template-columns: 1fr 90px 85px 95px 36px;
+  }
+  .atable-head span:nth-child(3),
+  .atable-row > *:nth-child(3),
+  .atable-head span:nth-child(4),
+  .atable-row > *:nth-child(4) { display: none; }
+}

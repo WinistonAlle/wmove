@@ -1,0 +1,221 @@
+/* ─── Period selector ─────────────────────────────────────── */
+.period-tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 20px;
+}
+.period-tab {
+  padding: 6px 14px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 13px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+.period-tab:hover { background: var(--surface-hover); color: var(--text); }
+.period-tab.active {
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-color: var(--accent-border);
+}
+
+/* ─── DRE ─────────────────────────────────────────────────── */
+.dre-card { padding: 20px 24px; }
+.dre-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--border);
+  gap: 16px;
+}
+.dre-row:last-child { border-bottom: none; }
+.dre-row.result {
+  padding: 14px 0 4px;
+  margin-top: 4px;
+  border-bottom: none;
+}
+.dre-label {
+  font-size: 13px;
+  color: var(--text-muted);
+  flex: 1;
+  min-width: 0;
+}
+.dre-row.result .dre-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+}
+.dre-val {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  white-space: nowrap;
+}
+.dre-val.positive { color: var(--emerald); }
+.dre-val.negative { color: var(--danger); }
+.dre-val.result-pos { font-size: 20px; font-weight: 600; color: var(--emerald); }
+.dre-val.result-neg { font-size: 20px; font-weight: 600; color: var(--danger); }
+.dre-sub {
+  font-size: 11px;
+  color: var(--text-dim);
+  margin-left: 8px;
+}
+.dre-margin {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 2px 7px;
+  border-radius: 999px;
+}
+.dre-margin.pos { background: rgba(16,185,129,0.12); color: var(--emerald); }
+.dre-margin.neg { background: rgba(239,68,68,0.10); color: var(--danger); }
+.dre-divider {
+  height: 1px;
+  background: var(--border-strong);
+  margin: 4px 0;
+}
+
+/* ─── Two-panel layout ────────────────────────────────────── */
+.fin-grid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+@media (max-width: 1100px) { .fin-grid { grid-template-columns: 1fr; } }
+
+/* ─── Cash flow chart (revenue vs expenses) ───────────────── */
+.cf-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  height: 160px;
+  padding-top: 28px;
+}
+.cf-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  height: 100%;
+}
+.cf-bars {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+}
+.cf-bar-wrap {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  background: var(--surface-strong);
+  border-radius: 5px;
+  overflow: hidden;
+}
+.cf-bar {
+  width: 100%;
+  border-radius: 5px 5px 0 0;
+  transition: height 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.cf-bar.income  { background: linear-gradient(180deg, #34d399, #10b981); }
+.cf-bar.expense { background: linear-gradient(180deg, #f87171, #ef4444); }
+.cf-label { font-size: 11px; color: var(--text-dim); font-weight: 500; }
+.cf-legend {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+.cf-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+.cf-legend-dot {
+  width: 8px; height: 8px;
+  border-radius: 2px;
+}
+
+/* ─── Expense breakdown ───────────────────────────────────── */
+.breakdown-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+}
+.breakdown-item:last-child { border-bottom: none; }
+.breakdown-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.breakdown-label { flex: 1; font-size: 13px; color: var(--text-muted); }
+.breakdown-pct   { font-size: 12px; color: var(--text-dim); min-width: 32px; text-align: right; }
+.breakdown-val   { font-size: 13px; font-weight: 500; min-width: 80px; text-align: right; }
+.breakdown-bar-wrap {
+  width: 60px;
+  height: 4px;
+  background: var(--surface-strong);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.breakdown-bar { height: 100%; border-radius: 999px; }
+
+/* ─── Expenses quick-add table ────────────────────────────── */
+.extable-head,
+.extable-row {
+  display: grid;
+  grid-template-columns: 100px 120px 1fr 110px 36px;
+  align-items: center;
+  gap: 12px;
+}
+.extable-head {
+  padding: 8px 16px;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--text-dim);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 4px;
+}
+.extable-row { padding: 10px 16px; }
+
+.cat-pill {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: var(--surface-strong);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+}
+
+/* ─── Custom period range ──────────────────────────────────── */
+.fin-period-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 4px;
+}
+.fin-custom-range {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.fin-month-input {
+  padding: 6px 10px !important;
+  font-size: 13px !important;
+  height: auto !important;
+  min-width: 140px;
+}

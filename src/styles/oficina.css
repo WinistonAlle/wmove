@@ -1,0 +1,118 @@
+/* ─── OS Table ────────────────────────────────────────────── */
+.otable-head,
+.otable-row {
+  display: grid;
+  grid-template-columns: 100px 130px 90px 1fr 90px 100px 36px 36px;
+  align-items: center;
+  gap: 12px;
+}
+.otable-head {
+  padding: 8px 16px;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--text-dim);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 4px;
+}
+.otable-row { padding: 10px 16px; }
+
+.completed-row { opacity: 0.55; }
+.completed-row:hover { opacity: 0.9; }
+
+/* ─── Description cell ────────────────────────────────────── */
+.os-desc {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ─── Late badge ──────────────────────────────────────────── */
+.late-badge {
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 2px 6px;
+  border-radius: 99px;
+  background: rgba(239,68,68,0.12);
+  color: var(--danger);
+  border: 1px solid rgba(239,68,68,0.2);
+}
+
+/* ─── Checkbox / complete button ──────────────────────────── */
+.os-check {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-dim);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+.os-check:hover { background: var(--surface-hover); color: var(--text); }
+.os-check.done {
+  border-color: rgba(16,185,129,0.4);
+  background: rgba(16,185,129,0.1);
+  color: #10b981;
+}
+
+/* ─── Top vehicles (reused from relatorios) ───────────────── */
+.top-vehicle-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+.top-vehicle-row:last-child { border-bottom: none; }
+
+.top-vehicle-rank {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  background: var(--surface-strong);
+  display: grid;
+  place-items: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.top-vehicle-name {
+  flex: 0 0 160px;
+  min-width: 0;
+}
+.top-vehicle-name > div:first-child {
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.top-vehicle-total {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  flex-shrink: 0;
+  text-align: right;
+  min-width: 90px;
+}
+
+/* ─── Responsive ──────────────────────────────────────────── */
+@media (max-width: 1100px) {
+  .otable-head,
+  .otable-row {
+    grid-template-columns: 90px 120px 80px 1fr 36px 36px;
+  }
+  .otable-head span:nth-child(5),
+  .otable-row > *:nth-child(5),
+  .otable-head span:nth-child(6),
+  .otable-row > *:nth-child(6) { display: none; }
+}

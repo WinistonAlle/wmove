@@ -1,0 +1,356 @@
+/* ─── Topbar ─────────────────────────────────────────────── */
+.termos-topbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 40px;
+  background: rgba(10,10,12,0.82);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border-bottom: 1px solid var(--border);
+}
+html[data-theme="light"] .termos-topbar {
+  background: rgba(245,245,243,0.85);
+}
+
+.termos-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.termos-logo { width: 28px; height: 28px; object-fit: contain; }
+
+.termos-topbar-right { display: flex; align-items: center; gap: 10px; }
+
+.termos-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  height: 36px;
+  padding: 0 16px;
+  border-radius: 10px;
+  background: var(--amber);
+  color: #0A0C14;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+.termos-cta-btn:hover { background: #fbbf24; }
+
+/* ─── Page layout ────────────────────────────────────────── */
+.termos-page {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 80px 40px 0;
+  gap: 0;
+  min-height: 100vh;
+}
+
+@media (max-width: 900px) {
+  .termos-page { grid-template-columns: 1fr; padding: 72px 20px 0; }
+  .termos-sidebar { display: none; }
+}
+
+/* ─── Sidebar ────────────────────────────────────────────── */
+.termos-sidebar {
+  padding: 40px 0;
+}
+.termos-sidebar-inner {
+  position: sticky;
+  top: 80px;
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+  padding-right: 24px;
+}
+.termos-sidebar-inner::-webkit-scrollbar { width: 0; }
+
+.termos-sidebar-title {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 12px;
+  padding-left: 12px;
+}
+
+.termos-nav { display: flex; flex-direction: column; gap: 2px; margin-bottom: 28px; }
+
+.termos-nav-item {
+  text-align: left;
+  padding: 7px 12px;
+  border-radius: 8px;
+  font-size: 12.5px;
+  color: var(--text-muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  line-height: 1.3;
+}
+.termos-nav-item:hover { background: var(--surface); color: var(--text); }
+.termos-nav-item.active {
+  background: var(--accent-soft);
+  color: var(--amber);
+  font-weight: 500;
+}
+
+.termos-meta {
+  padding: 14px;
+  background: var(--surface);
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+.termos-meta-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11.5px;
+  color: var(--text-muted);
+  padding: 3px 0;
+}
+.termos-meta-row span:last-child { color: var(--text); font-weight: 500; }
+
+/* ─── Content ────────────────────────────────────────────── */
+.termos-content {
+  padding: 40px 0 80px 48px;
+  max-width: 720px;
+}
+
+@media (max-width: 900px) {
+  .termos-content { padding: 32px 0 60px; max-width: 100%; }
+}
+
+/* ─── Hero ───────────────────────────────────────────────── */
+.termos-hero {
+  margin-bottom: 48px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--border);
+}
+.termos-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 99px;
+  background: var(--accent-soft);
+  color: var(--amber);
+  border: 1px solid var(--accent-border);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.termos-hero-title {
+  font-size: 38px;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  color: var(--text);
+  margin: 0 0 14px;
+  line-height: 1.1;
+}
+.termos-hero-sub {
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.65;
+  max-width: 600px;
+  margin: 0 0 20px;
+}
+.termos-hero-chips { display: flex; gap: 8px; flex-wrap: wrap; }
+.termos-chip {
+  padding: 5px 12px;
+  border-radius: 99px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* ─── Section ────────────────────────────────────────────── */
+.termos-section {
+  margin-bottom: 52px;
+  scroll-margin-top: 90px;
+}
+
+.termos-section h2 {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  margin: 0 0 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.termos-section h3 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  margin: 24px 0 10px;
+  letter-spacing: -0.01em;
+}
+
+.termos-section p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.75;
+  margin: 0 0 14px;
+}
+
+.termos-section ul {
+  margin: 10px 0 14px 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.termos-section ul li {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.65;
+  padding-left: 20px;
+  position: relative;
+}
+
+.termos-section ul li::before {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 10px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--amber);
+  opacity: 0.7;
+  flex-shrink: 0;
+}
+
+.termos-section strong { color: var(--text); font-weight: 600; }
+
+/* ─── Callouts ───────────────────────────────────────────── */
+.termos-callout {
+  display: flex;
+  gap: 14px;
+  padding: 16px 18px;
+  border-radius: 12px;
+  margin: 20px 0;
+  align-items: flex-start;
+}
+.termos-callout svg {
+  width: 18px; height: 18px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.termos-callout p {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.6;
+}
+.termos-callout.info {
+  background: rgba(99,102,241,0.08);
+  border: 1px solid rgba(99,102,241,0.2);
+}
+.termos-callout.info svg { color: #818CF8; }
+.termos-callout.info p { color: #a5b4fc; }
+html[data-theme="light"] .termos-callout.info p { color: #4338ca; }
+
+.termos-callout.warning {
+  background: rgba(245,158,11,0.08);
+  border: 1px solid rgba(245,158,11,0.2);
+}
+.termos-callout.warning svg { color: var(--amber); }
+.termos-callout.warning p { color: #fcd34d; }
+html[data-theme="light"] .termos-callout.warning p { color: #92400e; }
+
+/* ─── Definitions grid ───────────────────────────────────── */
+.termos-def-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 14px 0;
+}
+@media (max-width: 640px) { .termos-def-grid { grid-template-columns: 1fr; } }
+
+.termos-def-item {
+  padding: 14px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+.termos-def-item dt {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--amber);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.termos-def-item dd {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ─── Contact card ───────────────────────────────────────── */
+.termos-contact-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 24px;
+  margin-top: 28px;
+}
+.termos-contact-card h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0 0 18px;
+  border: none;
+  padding: 0;
+}
+.termos-contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+@media (max-width: 560px) { .termos-contact-grid { grid-template-columns: 1fr; } }
+
+.termos-contact-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-dim);
+  margin-bottom: 4px;
+}
+.termos-contact-card a {
+  font-size: 13px;
+  color: var(--amber);
+  text-decoration: none;
+  font-weight: 500;
+}
+.termos-contact-card a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+/* ─── Footer ─────────────────────────────────────────────── */
+.termos-footer {
+  margin-top: 60px;
+  padding-top: 28px;
+  border-top: 1px solid var(--border);
+}
+.termos-footer p {
+  font-size: 12px;
+  color: var(--text-dim);
+  margin: 0 0 6px;
+  line-height: 1.5;
+}

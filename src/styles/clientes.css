@@ -1,0 +1,87 @@
+/* ─── Customer Table ──────────────────────────────────────── */
+.ctable-head,
+.ctable-row {
+  display: grid;
+  grid-template-columns: 1fr 120px 120px 130px 70px 90px 36px;
+  align-items: center;
+  gap: 12px;
+}
+.ctable-head {
+  padding: 8px 16px;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--text-dim);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 4px;
+}
+.ctable-row { padding: 12px 16px; }
+
+.score-val {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+/* ─── Score Slider ────────────────────────────────────────── */
+.score-slider-wrap { display: flex; flex-direction: column; gap: 6px; }
+.score-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--surface-strong);
+  outline: none;
+  cursor: pointer;
+}
+.score-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: var(--score-color, var(--amber));
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.1), 0 2px 8px rgba(0,0,0,0.3);
+  cursor: pointer;
+  transition: box-shadow 0.18s;
+}
+.score-slider::-webkit-slider-thumb:hover {
+  box-shadow: 0 0 0 5px rgba(255,255,255,0.15), 0 2px 8px rgba(0,0,0,0.3);
+}
+.score-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: var(--text-dim);
+}
+
+/* ─── Toggle Row ──────────────────────────────────────────── */
+.toggle-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 9px;
+  background: var(--surface-strong);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  user-select: none;
+}
+.toggle-row input[type="checkbox"] {
+  width: 16px; height: 16px;
+  accent-color: var(--danger);
+  cursor: pointer;
+}
+.toggle-label { font-size: 13.5px; color: var(--text); }
+
+@media (max-width: 1100px) {
+  .ctable-head,
+  .ctable-row {
+    grid-template-columns: 1fr 120px 80px 90px 36px;
+  }
+  .ctable-head span:nth-child(3),
+  .ctable-row > *:nth-child(3),
+  .ctable-head span:nth-child(4),
+  .ctable-row > *:nth-child(4) { display: none; }
+}

@@ -1,0 +1,97 @@
+/* ─── Payments Table ──────────────────────────────────────── */
+.ptable-head,
+.ptable-row {
+  display: grid;
+  grid-template-columns: 110px 1fr 110px 120px 90px 36px;
+  align-items: center;
+  gap: 12px;
+}
+.ptable-head {
+  padding: 8px 16px;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--text-dim);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 4px;
+}
+.ptable-row { padding: 10px 16px; }
+
+/* ─── Method badge ────────────────────────────────────────── */
+.method-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 3px 8px;
+  border-radius: 7px;
+  background: var(--surface-strong);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* ─── Quick pay button ────────────────────────────────────── */
+.quick-pay-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11.5px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 7px;
+  background: rgba(16,185,129,0.12);
+  border: 1px solid rgba(16,185,129,0.22);
+  color: var(--emerald);
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.18s ease;
+}
+.quick-pay-btn:hover {
+  background: rgba(16,185,129,0.2);
+  transform: translateY(-1px);
+}
+
+/* ─── KPIs ────────────────────────────────────────────────── */
+.pay-kpis {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.pay-kpi {
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.pay-kpi-label {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--text-dim);
+}
+.pay-kpi-value {
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+}
+.pay-kpi-value.emerald { color: var(--emerald); }
+.pay-kpi-value.danger  { color: var(--danger); }
+.pay-kpi-value.amber   { color: var(--amber); }
+.pay-kpi-sub { font-size: 11.5px; color: var(--text-dim); }
+
+/* ─── Responsive ──────────────────────────────────────────── */
+@media (max-width: 1100px) {
+  .pay-kpis { grid-template-columns: repeat(2, 1fr); }
+  .ptable-head,
+  .ptable-row {
+    grid-template-columns: 100px 1fr 110px 90px 36px;
+  }
+  .ptable-head span:nth-child(4),
+  .ptable-row > *:nth-child(4) { display: none; }
+}
